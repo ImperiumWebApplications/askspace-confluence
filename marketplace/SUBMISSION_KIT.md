@@ -8,6 +8,12 @@ Everything below is formatted to pass Atlassian Marketplace Partner Review and P
 
 - **App Name (41 / 60 chars max):** `AskSpace - Questions & FAQ for Confluence`
 - **Tagline (106 chars):** `Internal Q&A & verified FAQ hub for Confluence Cloud — inline answer macros, Rovo AI & Runs on Atlassian.`
+- **Website / Homepage URL:** `https://askspace.app`
+- **Privacy Policy URL:** `https://askspace.app/privacy.html`
+- **EULA / Terms URL:** `https://askspace.app/eula.html`
+- **Security & Trust URL:** `https://askspace.app/security.html`
+- **Documentation & Support URL:** `https://askspace.app/support.html`
+- **Support Email:** `support@askspace.app`
 - **Hosting / Deployment:** Cloud — 100% Native Atlassian Forge (`Runs on Atlassian` eligible, zero external egress)
 - **Billing Model:** Paid via Atlassian (0% Atlassian revenue share on your first \$1,000,000 lifetime Forge revenue)
 - **Primary Categories:** `Documentation`, `Messaging`, `Knowledge management`
