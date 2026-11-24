@@ -1,0 +1,114 @@
+modules:
+  confluence:globalPage:
+    - key: askspace-global-hub
+      resource: main-ui
+      render: native
+      resolver:
+        function: main-resolver
+      title: AskSpace Q&A
+      route: askspace-qa
+
+  confluence:spacePage:
+    - key: askspace-space-hub
+      resource: main-ui
+      render: native
+      resolver:
+        function: main-resolver
+      title: AskSpace Q&A
+      route: askspace-space-qa
+
+  macro:
+    - key: askspace-faq-macro
+      resource: macro-ui
+      render: native
+      resolver:
+        function: main-resolver
+      title: AskSpace Q&A & FAQ
+      description: Display live Confluence questions and verified accepted answers
+        inline on any page.
+      config:
+        resource: macro-config-ui
+        render: native
+
+  rovo:agent:
+    - key: askspace-rovo-agent
+      name: AskSpace Q&A Assistant
+      description: Searches verified internal Q&A threads and accepted answers stored
+        in AskSpace for Confluence.
+      prompt: |
+        You are the AskSpace Q&A Assistant for Confluence.
+        Always invoke the search-verified-qa action first to search internal AskSpace Q&A threads before answering.
+        Strongly prioritize questions with a verified accepted answer (verifiedAnswer present), state who verified it, and include any promoted Confluence page URL.
+        Never fabricate internal policies or answers not returned by AskSpace. If no verified answer exists, say so clearly and suggest asking in AskSpace Q&A.
+      conversationStarters:
+        - Find verified answers about onboarding
+        - Search AskSpace Q&A for deployment steps
+        - Are there answered FAQ questions for this team?
+      actions:
+        - search-verified-qa
+
+  action:
+    - key: search-verified-qa
+      name: Search AskSpace Verified Q&A
+      function: rovo-action-handler
+      actionVerb: GET
+      description: Searches internal AskSpace Q&A questions and verified accepted
+        answers stored in Confluence.
+      inputs:
+        query:
+          title: Search Query
+          type: string
+          required: true
+          description: Keywords or topic to search in internal AskSpace Q&A threads.
+        spaceKey:
+          title: Confluence Space Key
+          type: string
+          required: false
+          description: Optional Confluence space key to narrow results.
+        onlyVerified:
+          title: Only Verified Answers
+          type: boolean
+          required: false
+          description: If true, only return questions that have an accepted solution.
+
+  trigger:
+    - key: askspace-lifecycle-trigger
+      function: lifecycle-handler
+      events:
+        - avi:forge:installed:app
+        - avi:forge:upgraded:app
+
+  sql:
+    - key: main
+      engine: mysql
+
+  function:
+    - key: main-resolver
+      handler: resolvers/index.handler
+    - key: rovo-action-handler
+      handler: resolvers/index.rovoSearchHandler
+    - key: lifecycle-handler
+      handler: resolvers/index.lifecycleHandler
+
+resources:
+  - key: main-ui
+    path: src/frontend/hub.tsx
+  - key: macro-ui
+    path: src/frontend/macro.tsx
+  - key: macro-config-ui
+    path: src/frontend/macroConfig.tsx
+
+permissions:
+  scopes:
+    - read:space:confluence
+    - read:page:confluence
+    - write:page:confluence
+    - read:confluence-user
+    - storage:app
+
+app:
+  runtime:
+    name: nodejs22.x
+  id: ari:cloud:ecosystem::app/2d6240f9-7722-4d2c-b691-5711859ddb43
+  licensing:
+    enabled: true

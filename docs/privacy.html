@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AskSpace for Confluence</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">AskSpace for Confluence</a>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="security.html">Security</a>
+        <a href="support.html">Docs &amp; Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective Date:</strong> November 24, 2026 · <strong>Product:</strong> AskSpace - Questions &amp; FAQ for Confluence</p>
+
+    <h2>1. Zero External Data Egress ("Runs on Atlassian")</h2>
+    <p>
+      AskSpace is built 100% on Atlassian Forge and Atlassian-hosted Forge SQL storage.
+      AskSpace operates <strong>no external servers</strong>, transmits <strong>no End-User Data outside Atlassian Cloud</strong>,
+      and uses <strong>zero third-party data subprocessors</strong>. All app compute and data remain strictly inside Atlassian's
+      isolated cloud boundary and follow your Confluence Cloud site's Data Residency region.
+    </p>
+
+    <h2>2. Data Processed Inside Atlassian Forge</h2>
+    <p>To deliver internal Q&amp;A functionality inside your Confluence tenant, AskSpace stores only data explicitly created by users within the app inside Atlassian-hosted Forge SQL:</p>
+    <ul>
+      <li>Questions, answers, comments, tags, votes, and watch subscriptions created inside AskSpace.</li>
+      <li>Atlassian Account ID and public display name of the user who authored, answered, commented on, or verified a thread (fetched at runtime via Confluence REST API).</li>
+      <li>Audit log entries recording Q&amp;A lifecycle events (creation, acceptance, tag merges, page promotions) for customer governance.</li>
+    </ul>
+
+    <h2>3. Data Retention &amp; Deletion (GDPR / CCPA / DPDP Rights)</h2>
+    <ul>
+      <li><strong>In-App Deletion:</strong> Authors and administrators may delete individual questions or answers at any time; deleting a question immediately cascades and deletes all associated answers, comments, votes, watchers, and notifications.</li>
+      <li><strong>Uninstall Cleanup:</strong> When a Confluence site administrator uninstalls AskSpace, Atlassian automatically schedules removal of the app's tenant-isolated Forge storage in accordance with Atlassian Forge lifecycle policies.</li>
+      <li><strong>Data Principal / Subject Requests:</strong> Because AskSpace does not store customer data outside your Atlassian Cloud instance, site administrators maintain direct control. For any privacy inquiry, contact our support team via the <a href="support.html">Support Portal</a>.</li>
+    </ul>
+
+    <h2>4. Cookies &amp; Analytics</h2>
+    <p>AskSpace sets no third-party advertising cookies, tracking pixels, or external analytics beacons.</p>
+  </main>
+
+  <footer>
+    &copy; 2026 AskSpace Software · <a href="index.html">Home</a> · <a href="eula.html">EULA</a> · <a href="security.html">Security</a>
+  </footer>
+</body>
+</html>

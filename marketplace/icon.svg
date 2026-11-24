@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052CC" />
+      <stop offset="100%" stop-color="#0065FF" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00875A" />
+      <stop offset="100%" stop-color="#36B37E" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#bg)" />
+  <path d="M116 144 C116 116 138 94 166 94 L346 94 C374 94 396 116 396 144 L396 286 C396 314 374 336 346 336 L228 336 L154 398 C144 406 130 399 130 386 L130 336 L166 336 C138 336 116 314 116 286 Z" fill="#FFFFFF" />
+  <text x="256" y="255" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="148" font-weight="800" fill="#0052CC">?</text>
+  <circle cx="384" cy="368" r="78" fill="url(#badge)" stroke="#FFFFFF" stroke-width="14" />
+  <path d="M348 368 L373 393 L422 342" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

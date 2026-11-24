@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security &amp; Architecture — AskSpace for Confluence</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">AskSpace for Confluence</a>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="security.html">Security</a>
+        <a href="support.html">Docs &amp; Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <span class="badge">Runs on Atlassian · Zero External Egress</span>
+    <h1>Security, Privacy &amp; Least-Privilege Architecture</h1>
+
+    <h2>1. 100% Atlassian-Hosted Compute &amp; Storage</h2>
+    <ul>
+      <li><strong>Runtime:</strong> Atlassian Forge Node.js 22.x serverless runtime (no external AWS, GCP, or third-party servers).</li>
+      <li><strong>Storage:</strong> Tenant-isolated Atlassian Forge SQL (MySQL/TiDB) hosted inside Atlassian Cloud with automatic Data Residency alignment.</li>
+      <li><strong>External Egress:</strong> None. <code>manifest.yml</code> declares zero external fetch domains or remotes.</li>
+      <li><strong>SQL Injection Prevention:</strong> 100% parameterized prepared statements via <code>@forge/sql</code> <code>prepare().bindParams()</code>.</li>
+      <li><strong>Permission Enforcement:</strong> All Confluence API actions (reading spaces, checking admin rights, creating promoted FAQ pages) execute via <code>api.asUser()</code> — strictly honoring the signed-in user's real Confluence permissions.</li>
+    </ul>
+
+    <h2>2. Minimal OAuth Scopes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Scope</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>read:space:confluence</code></td><td>Resolve space metadata, populate space dropdown filters, and verify Space Administrator status for governance actions (admin-verified solutions and tag merging).</td></tr>
+        <tr><td><code>read:page:confluence</code></td><td>Support macro context rendering on Confluence pages.</td></tr>
+        <tr><td><code>write:page:confluence</code></td><td>Power the user-initiated 1-click "Publish to Confluence Page" feature to turn a verified Q&amp;A thread into a Confluence documentation page under the user's own permissions.</td></tr>
+        <tr><td><code>read:confluence-user</code></td><td>Read the signed-in user's display name and site administrator status so questions, answers, and audit logs show accurate attribution.</td></tr>
+        <tr><td><code>storage:app</code></td><td>Store tenant-isolated Q&amp;A records, tags, votes, notifications, and audit logs inside Atlassian-hosted Forge SQL.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Vulnerability Disclosure</h2>
+    <p>To report a security issue, please open a high-priority ticket via our <a href="support.html">Support Portal</a>. Critical security reports receive an acknowledgement within 24 hours.</p>
+  </main>
+
+  <footer>
+    &copy; 2026 AskSpace Software · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a>
+  </footer>
+</body>
+</html>
