@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 548" width="1120" height="548">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0747A6" />
+      <stop offset="55%" stop-color="#0052CC" />
+      <stop offset="100%" stop-color="#0065FF" />
+    </linearGradient>
+    <linearGradient id="checkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00875A" />
+      <stop offset="100%" stop-color="#36B37E" />
+    </linearGradient>
+  </defs>
+  <rect width="1120" height="548" fill="url(#heroBg)" />
+  <circle cx="980" cy="80" r="220" fill="#FFFFFF" opacity="0.06" />
+  <circle cx="1040" cy="480" r="180" fill="#36B37E" opacity="0.12" />
+
+  <!-- Brand Icon -->
+  <g transform="translate(84, 124)">
+    <rect width="180" height="180" rx="38" fill="#FFFFFF" opacity="0.14" />
+    <g transform="translate(18, 18) scale(0.28125)">
+      <path d="M116 144 C116 116 138 94 166 94 L346 94 C374 94 396 116 396 144 L396 286 C396 314 374 336 346 336 L228 336 L154 398 C144 406 130 399 130 386 L130 336 L166 336 C138 336 116 314 116 286 Z" fill="#FFFFFF" />
+      <text x="256" y="255" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="148" font-weight="800" fill="#0052CC">?</text>
+      <circle cx="384" cy="368" r="78" fill="url(#checkGrad)" stroke="#FFFFFF" stroke-width="14" />
+      <path d="M348 368 L373 393 L422 342" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+
+  <!-- Runs on Atlassian Pill -->
+  <rect x="304" y="114" width="268" height="38" rx="19" fill="#E3FCEF" />
+  <text x="438" y="139" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#006644">100% Native · Runs on Atlassian</text>
+
+  <!-- Main Title -->
+  <text x="304" y="216" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="56" font-weight="800" fill="#FFFFFF">AskSpace</text>
+  <text x="304" y="266" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="600" fill="#DEEBFF">Questions &amp; Verified FAQ for Confluence</text>
+
+  <!-- Feature Pills -->
+  <g transform="translate(304, 304)">
+    <rect x="0" y="0" width="218" height="44" rx="8" fill="#FFFFFF" opacity="0.16" />
+    <text x="109" y="28" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Inline FAQ + Answers</text>
+
+    <rect x="234" y="0" width="234" height="44" rx="8" fill="#FFFFFF" opacity="0.16" />
+    <text x="351" y="28" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">1-Click Publish to Page</text>
+
+    <rect x="484" y="0" width="200" height="44" rx="8" fill="#FFFFFF" opacity="0.16" />
+    <text x="584" y="28" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Rovo AI &amp; Audit Log</text>
+  </g>
+
+  <!-- Partner Footer -->
+  <text x="84" y="476" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="20" font-weight="600" fill="#B3D4FF">by AskSpace Software  ·  askspace.app</text>
+</svg>

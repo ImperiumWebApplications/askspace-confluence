@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Processing Addendum (DPA) — AskSpace Software</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">AskSpace for Confluence</a>
+      <div class="nav-links">
+        <a href="index.html">Overview</a>
+        <a href="security.html">Security</a>
+        <a href="support.html">Docs &amp; Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="dpa.html">DPA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <span class="badge">Runs on Atlassian · Zero External Subprocessors</span>
+    <h1>Data Processing Addendum (DPA)</h1>
+    <p><strong>Effective Date:</strong> November 24, 2026 · <strong>Vendor:</strong> AskSpace Software · <strong>Product:</strong> AskSpace - Questions &amp; FAQ for Confluence</p>
+
+    <h2>1. Roles &amp; Scope</h2>
+    <p>
+      This Data Processing Addendum ("DPA") forms part of the End-User License Agreement between Customer ("Data Controller")
+      and AskSpace Software ("Data Processor") solely to the extent AskSpace processes Personal Data within Atlassian Cloud
+      in connection with Customer's use of <strong>AskSpace - Questions &amp; FAQ for Confluence</strong>.
+    </p>
+
+    <h2>2. Categories of Data Processed</h2>
+    <ul>
+      <li><strong>Data Subjects:</strong> Authorized Confluence Cloud users of the Customer's Atlassian site.</li>
+      <li><strong>Personal Data:</strong> Atlassian Account ID, public display name, and user-authored Q&amp;A content (questions, answers, comments, votes, watch subscriptions, and governance audit logs).</li>
+      <li><strong>Special Categories:</strong> AskSpace is not intended for storing special-category sensitive data, financial account numbers, or protected health records.</li>
+    </ul>
+
+    <h2>3. Zero External Storage &amp; Subprocessors ("Runs on Atlassian")</h2>
+    <p>
+      AskSpace executes 100% natively on Atlassian Forge compute and stores all tenant data exclusively inside
+      Atlassian-hosted, tenant-isolated Forge SQL storage. AskSpace Software operates <strong>no external servers</strong>,
+      performs <strong>zero outbound End-User Data egress</strong>, and engages <strong>zero third-party data subprocessors</strong>
+      beyond Atlassian's native Forge platform infrastructure covered by Customer's existing Atlassian Cloud DPA.
+    </p>
+
+    <h2>4. Data Residency, Security &amp; Erasure</h2>
+    <ul>
+      <li><strong>Data Residency:</strong> All Forge SQL data automatically inherits the Data Residency region pinned on Customer's Confluence Cloud site.</li>
+      <li><strong>Access Controls:</strong> All Confluence REST operations execute via <code>api.asUser()</code> adhering to the signed-in user's Confluence permissions.</li>
+      <li><strong>Deletion &amp; DSR Support:</strong> Customer users and administrators may delete questions and answers at any time in-app (cascading to all linked records), and uninstalling the app removes tenant storage per Atlassian Forge lifecycle policies.</li>
+      <li><strong>Breach Notification:</strong> AskSpace Software will notify Customer without undue delay (and within 72 hours) upon becoming aware of any verified security incident affecting Customer Personal Data.</li>
+    </ul>
+
+    <h2>5. Contact</h2>
+    <p>For DPA execution requests or data protection inquiries, email <a href="mailto:support@askspace.app">support@askspace.app</a>.</p>
+  </main>
+
+  <footer>
+    &copy; 2026 AskSpace Software · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="eula.html">EULA</a> · <a href="security.html">Security</a>
+  </footer>
+</body>
+</html>
