@@ -583,7 +583,7 @@ const HubApp = () => {
         {/* Main Content: Question Detail OR Hub Tabs */}
         {activeQuestion ? (
           <Stack space="space.200">
-            <Inline spread="space-between" alignBlock="center">
+            <Inline spread="space-between" alignBlock="center" shouldWrap>
               <Button appearance="subtle" onClick={() => setActiveQuestion(null)}>
                 ← Back to All Questions
               </Button>
@@ -1090,7 +1090,7 @@ const HubApp = () => {
             <TabPanel>
               <Box paddingBlockStart="space.200">
                 <Stack space="space.200">
-                  <Inline spread="space-between" alignBlock="center">
+                  <Inline spread="space-between" alignBlock="center" shouldWrap>
                     <Heading as="h4">Governance Audit Trail</Heading>
                     <Button appearance="default" isDisabled={busyAction} onClick={handleExportCsv}>
                       Generate Q&amp;A CSV Export
