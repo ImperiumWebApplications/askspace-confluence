@@ -325,8 +325,8 @@ export async function listQuestions(
   const total = Number(countRes.rows[0]?.cnt ?? 0);
 
   const rowsRes = await db.query<QuestionRow>(
-    `SELECT DISTINCT q.* FROM askspace_questions q ${tagJoin} ${whereSql} ${orderSql} LIMIT ? OFFSET ?`,
-    [...params, limit, offset]
+    `SELECT DISTINCT q.* FROM askspace_questions q ${tagJoin} ${whereSql} ${orderSql} LIMIT ${limit} OFFSET ${offset}`,
+    params
   );
 
   const qIds = rowsRes.rows.map((r) => r.id);
@@ -1102,6 +1102,7 @@ export async function getLeaderboard(spaceKey?: string | null): Promise<Leaderbo
 export async function listAuditLog(limit = 50): Promise<AuditLogEntry[]> {
   await ensureMigrated();
   const db = getDb();
+  const safeLimit = clampInt(limit, 50, 1, 200);
   const res = await db.query<{
     id: string;
     actor_account_id: string;
@@ -1112,8 +1113,7 @@ export async function listAuditLog(limit = 50): Promise<AuditLogEntry[]> {
     details: string;
     created_at: string;
   }>(
-    `SELECT * FROM askspace_audit_log ORDER BY created_at DESC LIMIT ?`,
-    [clampInt(limit, 50, 1, 200)]
+    `SELECT * FROM askspace_audit_log ORDER BY created_at DESC LIMIT ${safeLimit}`
   );
   return res.rows.map((r) => ({
     id: r.id,

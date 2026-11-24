@@ -177,7 +177,9 @@ class InMemoryAskSpaceDb implements SqlExecutor {
       };
     }
     if (s.startsWith('SELECT * FROM askspace_audit_log')) {
-      return { rows: [...this.auditLog].reverse().slice(0, Number(params[0] ?? 50)) as T[] };
+      const m = s.match(/LIMIT (\d+)/);
+      const lim = m ? Number(m[1]) : 50;
+      return { rows: [...this.auditLog].reverse().slice(0, lim) as T[] };
     }
     if (s.startsWith('SELECT t.id, t.name, t.display_name')) {
       const rows = this.tags.map((t) => ({
@@ -239,8 +241,10 @@ class InMemoryAskSpaceDb implements SqlExecutor {
       if (s.includes('ORDER BY q.vote_score DESC')) {
         list.sort((a, b) => Number(b.vote_score) - Number(a.vote_score));
       }
-      const limit = Number(params[idx++] ?? 25);
-      const offset = Number(params[idx++] ?? 0);
+      const limMatch = s.match(/LIMIT (\d+)/);
+      const offMatch = s.match(/OFFSET (\d+)/);
+      const limit = limMatch ? Number(limMatch[1]) : 25;
+      const offset = offMatch ? Number(offMatch[1]) : 0;
       return { rows: list.slice(offset, offset + limit) as T[] };
     }
     if (s.startsWith('SELECT a.author_account_id')) {
